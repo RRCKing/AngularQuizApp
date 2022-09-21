@@ -1,0 +1,10 @@
+<mat-card>
+    <md-card-content>Question List</md-card-content>
+    <md-card-content>
+        <mat-action-list>
+            <mat-list-item *ngFor="let question of questions">
+                <a class="ClickLink" (click)="api.selectQuestion(question)">{{question.id}}{{question.text}}</a>
+            </mat-list-item>            
+        </mat-action-list>
+    </md-card-content>      
+</mat-card>

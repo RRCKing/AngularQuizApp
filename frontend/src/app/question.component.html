@@ -1,0 +1,40 @@
+<mat-card>
+    <md-card-title>
+        <span *ngIf="question.id">Edit Question</span>
+        <span *ngIf="!question.id">New Question</span>
+    </md-card-title>
+    <md-card-content>
+        <form action="">
+            <mat-form-field class="fullWidth">
+                <mat-label>Question</mat-label>
+                <input [(ngModel)]="question.text" name="question" matInput placeholder="Question">
+            </mat-form-field>
+            <mat-form-field class="fullWidth">
+                <mat-label>Answer</mat-label>
+                <input [(ngModel)]="question.correctAnswer" name="correctAnswer" matInput placeholder="Correct Answer">
+            </mat-form-field>
+            <mat-form-field class="fullWidth">
+                <mat-label>Answer</mat-label>
+                <input [(ngModel)]="question.answer1" name="answer1" matInput placeholder="Wrong Answer1">
+            </mat-form-field>
+            <mat-form-field class="fullWidth">
+                <mat-label>Answer</mat-label>
+                <input [(ngModel)]="question.answer2" name="answer2" matInput placeholder="Wrong Answer2">
+            </mat-form-field>
+            <mat-form-field class="fullWidth">
+                <mat-label>Answer</mat-label>
+                <input [(ngModel)]="question.answer3" name="answer3" matInput placeholder="Wrong Answer3">
+            </mat-form-field>
+        </form>      
+    </md-card-content>
+    <md-card-action>
+        <button *ngIf="question.id" (click)="api.putQuestion(question)" md-button>Edit</button>
+        <button *ngIf="question.id" 
+            (click)="question = {id:0, text: '',correctAnswer:'',answer1:'',answer2:'',answer3:''}" md-button>
+            New
+        </button>
+        <button *ngIf="!question.id" (click)="post(question)" md-button>POST</button>
+    </md-card-action>
+      
+</mat-card>
+<questions></questions>
